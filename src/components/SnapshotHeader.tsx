@@ -10,7 +10,7 @@ export function SnapshotHeader({ snapshot, stats }: Props) {
   return (
     <header className="snapshot-header">
       <div>
-        <h1>SSOT Explorer</h1>
+        <h1>Anchor Explorer</h1>
         <p className="muted">
           Read-only view of <strong>{fileName}</strong> — Anchor Migration crosswalk (ADR-005)
         </p>

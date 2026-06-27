@@ -1,5 +1,5 @@
 {
-  "name": "ssot-explorer",
+  "name": "anchor-explorer",
   "version": "0.1.0-alpha",
   "private": false,
   "description": "Read-only UI for Anchor Migration SSOT snapshots — crosswalk graphs with bidirectional edge coloring",

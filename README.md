@@ -1,4 +1,4 @@
-# SSOT Explorer
+# Anchor Explorer
 
 Part of **[Anchor Migration](https://github.com/anchor-migration/migration-hub)** — read-only **human interface** for SSOT snapshots.
 
