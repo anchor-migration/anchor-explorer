@@ -1,5 +1,4 @@
-import initSqlJs, { type Database, type SqlJsStatic } from "sql.js";
-import wasmUrl from "sql.js/dist/sql-wasm.wasm?url";
+import type { Database, SqlJsStatic } from "sql.js";
 import type { CodeSchemaLink, CrosswalkIssue, CrosswalkRun, LinkedSnapshot, LinkStats } from "./types";
 import { parseEdgeColor } from "../utils/colors";
 
@@ -7,7 +6,13 @@ let sqlInit: Promise<SqlJsStatic> | null = null;
 
 async function getSql(): Promise<SqlJsStatic> {
   if (!sqlInit) {
-    sqlInit = initSqlJs({ locateFile: () => wasmUrl });
+    sqlInit = (async () => {
+      const [{ default: initSqlJs }, { default: wasmUrl }] = await Promise.all([
+        import("sql.js/dist/sql-wasm.js"),
+        import("sql.js/dist/sql-wasm.wasm?url"),
+      ]);
+      return initSqlJs({ locateFile: () => wasmUrl });
+    })();
   }
   return sqlInit;
 }
